@@ -13,7 +13,7 @@ import java.util.UUID;
 @RequestMapping("/product")
 public class ProductController {
 
-    Product globalProduct = new Product();
+     Product globalProduct = new Product();
 
     @PostMapping("add")
     public Product addProduct(){
@@ -21,6 +21,7 @@ public class ProductController {
         Product product = new Product();
 
         ProductDetails productDetails = new ProductDetails();
+
         productDetails.setId(1);
         productDetails.setName("Apple");
         productDetails.setColor("Green");
@@ -66,8 +67,9 @@ public class ProductController {
         globalProduct = userProduct;
         return globalProduct;
     }
+
     @GetMapping("get")
-    public  Product reportProduct(){
+    public Product reportProduct(){
         return  globalProduct;
     }
 }
