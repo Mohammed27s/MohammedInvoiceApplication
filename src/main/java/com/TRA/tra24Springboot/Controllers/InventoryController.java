@@ -25,14 +25,13 @@ public class InventoryController {
         newInventory.setId(1);
         newInventory.setCreatedDate(new Date());
         newInventory.setIsActive(Boolean.TRUE);
-        newInventory.setProducts(exitingProduct);
         newInventory.setLocation("Muscat");
         newInventory.setManager("Mohammed Salim");
         newInventory.setSupplier("DHL");
         newInventory.setPhoneNumber("+968 976756564");
         newInventory.setOpeningHours("9:00 AM");
         newInventory.setClosingHours("10:00 PM");
-
+        newInventory.setProducts(exitingProduct);
         inventoryStore = newInventory;
 
          return newInventory; //This is for Displaying all new added values

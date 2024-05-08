@@ -10,19 +10,18 @@ import java.util.List;
 import java.util.UUID;
 
 //This Product API
-
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/product") //This is the main directory for Product API
 public class ProductController {
 
-     Product globalProduct = new Product();
+     Product globalProduct = new Product(); //This is for saving and displaying the product data
 
-    @PostMapping("add")
+    @PostMapping("add") //This is path /add for adding Product
     public Product addProduct(){
 
-        Product product = new Product();
+        Product product = new Product(); //This is Product class
 
-        ProductDetails productDetails = new ProductDetails();
+        ProductDetails productDetails = new ProductDetails(); //This is Product Details
 
         productDetails.setId(1);
         productDetails.setName("Apple");
@@ -45,7 +44,7 @@ public class ProductController {
         return product;
     }
 
-    @PostMapping("delete/{id}")
+    @PostMapping("delete/{id}") //This is path /delete for Deleting Product
     public String deleteProduct(@PathVariable Integer id){
 
             if(globalProduct.getId().equals(id)){
@@ -56,7 +55,7 @@ public class ProductController {
         return "Success!";
     }
 
-    @PutMapping("update")
+    @PutMapping("update") //This is path /update for Updating The product information
     public Product updateProduct(@RequestBody Product userProduct){
 
 
@@ -70,8 +69,9 @@ public class ProductController {
         return globalProduct;
     }
 
-    @GetMapping("get")
+    @GetMapping("get") //This is path /get for getting all the information about the product
     public Product reportProduct(){
         return  globalProduct;
     }
+
 }
