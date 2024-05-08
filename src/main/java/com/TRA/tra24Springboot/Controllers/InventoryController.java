@@ -7,18 +7,19 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+//This is Inventory API
 @RestController
-@RequestMapping("/inventory") //This is the main path for the Inventory API
+@RequestMapping("/inventory") //This is the main Directory for the Inventory API
 public class InventoryController {
 
-    ProductController allProduct = new ProductController(); //This is for getting all exiting products
+    ProductController allInventoryProduct = new ProductController(); //This is for getting all exiting products
     Inventory inventoryStore = new Inventory(); //This is Inventory class
 
-    @PostMapping("add") //This is path for adding new inventory
+    @PostMapping("add") //This is path /add for adding new inventory
     public Inventory addInventory(){
 
-        List<Product>  exitingProduct= new ArrayList<>();
-        exitingProduct.add(allProduct.globalProduct);
+        List<Product> exitingProduct = new ArrayList<>();
+        exitingProduct.add(allInventoryProduct.reportProduct());
         Inventory newInventory = new Inventory();
 
         newInventory.setId(1);
@@ -27,7 +28,7 @@ public class InventoryController {
         newInventory.setProducts(exitingProduct);
         newInventory.setLocation("Muscat");
         newInventory.setManager("Mohammed Salim");
-        newInventory.setSupplier("Amazon");
+        newInventory.setSupplier("DHL");
         newInventory.setPhoneNumber("+968 976756564");
         newInventory.setOpeningHours("9:00 AM");
         newInventory.setClosingHours("10:00 PM");
