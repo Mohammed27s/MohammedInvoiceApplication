@@ -1,55 +1,52 @@
 package com.TRA.tra24Springboot.Controllers;
 
-
 import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Models.Order;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.Supplier;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//This is Reporting API
-
 @RestController
-@RequestMapping("/report") //This is the main directory for Reporting API
+@RequestMapping("/report")
 public class ReportingController {
 
+    private final SupplierController supplierController;
+    private final InventoryController inventoryController;
+    private final OrderController orderController;
+    private final ProductController productController;
 
-    SupplierController supplierReport = new SupplierController();
-    InventoryController inventoryReport = new InventoryController();
-    OrderController orderReport = new OrderController();
-    ProductController productReport = new ProductController();
 
-    //This is fetching data report for Supplier
-    @GetMapping("GetSupplier")  //This for getting the report for Supplier
-    public Supplier reportSupplier(){
+    @Autowired //From here added
+    public ReportingController(SupplierController supplierController,
+                               InventoryController inventoryController,
+                               OrderController orderController,
+                               ProductController productController) {
+        this.supplierController = supplierController;
+        this.inventoryController = inventoryController;
+        this.orderController = orderController;
+        this.productController = productController;
+    } //To here add
 
-        return supplierReport.reportSupplier();  //Displaying
+    @GetMapping("getSupplier")
+    public Supplier reportSupplier() {
+        return supplierController.reportSupplier();
     }
 
-    //This is fetching data report for Inventory
-    @GetMapping("GetInventory")  //This for getting the report for Inventory
-    public Inventory reportInventory(){
-
-        return inventoryReport.reportInventory();  //Displaying
+    @GetMapping("getInventory")
+    public Inventory reportInventory() {
+        return inventoryController.reportInventory();
     }
 
-    //This is fetching data report for Order
-    @GetMapping("GetOrder")  //This for getting the report for Order
-    public Order reportOrder(){
-
-        return orderReport.reportOrder();  //Displaying
+    @GetMapping("getOrder")
+    public Order reportOrder() {
+        return orderController.reportOrder();
     }
 
-    //This is fetching data report for Product
-    @GetMapping("GetProduct") //This is path /get for getting all the information about the product
-    public Product reportProduct(){
-
-        return productReport.reportProduct();
+    @GetMapping("getProduct")
+    public Product reportProduct() {
+        return productController.reportProduct();
     }
-
-
-
 }

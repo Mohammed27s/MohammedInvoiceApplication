@@ -24,8 +24,8 @@ public class ProductController {
         ProductDetails productDetails = new ProductDetails(); //This is Product Details
 
         productDetails.setId(1);
-        productDetails.setName("Apple");
-        productDetails.setColor("Green");
+        productDetails.setName("Iphone 14");
+        productDetails.setColor("Black");
         productDetails.setSize("Small");
         productDetails.setPrice(10d);
         productDetails.setCountryOfOrigin("USA");
@@ -71,7 +71,10 @@ public class ProductController {
 
     @GetMapping("get") //This is path /get for getting all the information about the product
     public Product reportProduct(){
+        System.out.println("Retrieving product: " + globalProduct);
         return  globalProduct;
     }
+
+
 
 }
