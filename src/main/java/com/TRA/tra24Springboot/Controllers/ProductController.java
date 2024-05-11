@@ -72,9 +72,8 @@ public class ProductController {
     @GetMapping("get") //This is path /get for getting all the information about the product
     public Product reportProduct(){
         System.out.println("Retrieving product: " + globalProduct);
-        return  globalProduct;
+        return  globalProduct; //This is for fetching the data
     }
-
 
 
 }
