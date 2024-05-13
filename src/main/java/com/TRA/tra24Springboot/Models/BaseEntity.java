@@ -15,15 +15,11 @@ import java.util.Date;
 @MappedSuperclass
 public class BaseEntity {
 
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
-
-    @CreatedDate
     Date createdDate;
-
-    @UpdateTimestamp
     Date updatedDate;
-
     Boolean isActive;
+
 }

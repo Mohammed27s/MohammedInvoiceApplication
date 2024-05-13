@@ -1,23 +1,21 @@
 package com.TRA.tra24Springboot.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.Date;
 import java.util.UUID;
 
 @Data
 @Entity
+@Table(name = "product")
 public class Product extends BaseEntity {
 
 
     Integer quantity;
     String category;
-    UUID sku;
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    UUID sku; //This is the id for product
     @OneToOne
-    ProductDetails productDetails;
-
+    ProductDetails productDetails; //This for each product it will has it own description
 
 }
