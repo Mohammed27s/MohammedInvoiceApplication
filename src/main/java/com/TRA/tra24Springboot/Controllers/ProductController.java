@@ -14,19 +14,19 @@ public class ProductController {
     @Autowired
     ProductServices productServices;
 
-    @PostMapping("save")
+    @PostMapping("save") //This is to save all data in Product
     public Product saveProduct(@RequestBody Product product){
 
         return productServices.saveProduct(product);
     }
 
-    @PostMapping("delete")
+    @PostMapping("delete") //This is to delete single element in Product
     public String deleteProduct(@RequestParam String sku){
         productServices.deleteProduct(sku);
         return "Success";
     }
 
-    @PostMapping("deleteByProductDetails")
+    @PostMapping("deleteByProductDetails") //This is to delete multiples elements in Product
     public String deleteByProductDetails(@RequestParam String productDetails){
         productServices.deleteProductDetails(productDetails);
         return "Success";

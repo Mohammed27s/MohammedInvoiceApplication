@@ -18,19 +18,19 @@ public class InventoryController {
     InventoryServices inventoryServices;
 
 
-    @PostMapping("save")
+    @PostMapping("save") //This is to save all data in Inventory
     public Inventory saveInventory(@RequestBody Inventory inventory){ //This is to save all data in Inventory DataBase
 
         return inventoryServices.saveInventory(inventory);
     }
 
-    @PostMapping("delete")
+    @PostMapping("delete") //This is to delete single element from Inventory
     public String deleteInventory(@RequestParam String managerName){
         inventoryServices.deleteInventoryByLocation(managerName);
         return "Success";
     }
 
-    @PostMapping("deleteByLocation")
+    @PostMapping("deleteByLocation") //This to delete multiples elements in Inventory
     public String deleteInventoryByLocation(@RequestParam String loc){
         inventoryServices.deleteInventoryByLocation(loc);
         return "Success";
