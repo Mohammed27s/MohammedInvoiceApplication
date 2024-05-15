@@ -38,8 +38,8 @@ public class ProductServices {
         Product products = productRepository.getByProductDetails(productDetails);
         products.setIsActive(Boolean.FALSE);
         productRepository.save(products);
-
         return "Success";
+
     }
 
 

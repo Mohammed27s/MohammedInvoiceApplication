@@ -19,9 +19,8 @@ public class OrderController {
     OrderService orderService;
 
     @PostMapping("save") //This is to save all order information
-    public String saveOrder(@RequestBody Order order){
-
-        return "Success";
+    public Order saveOrder(@RequestBody Order order){
+        return orderService.saveOrder(order);
     }
 
     @PostMapping("delete") //This is to delete one element from Order Database

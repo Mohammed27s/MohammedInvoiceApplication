@@ -2,9 +2,13 @@ package com.TRA.tra24Springboot.Controllers;
 
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Services.ProductServices;
+import jakarta.persistence.Entity;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@Data
+@Entity
 
 //This Product API
 @RestController
@@ -16,7 +20,6 @@ public class ProductController {
 
     @PostMapping("save") //This is to save all data in Product
     public Product saveProduct(@RequestBody Product product){
-
         return productServices.saveProduct(product);
     }
 
