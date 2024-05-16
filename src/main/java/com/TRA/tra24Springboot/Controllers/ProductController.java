@@ -1,5 +1,6 @@
 package com.TRA.tra24Springboot.Controllers;
 
+import com.TRA.tra24Springboot.DTO.ProductDTO;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Services.ProductServices;
 import jakarta.persistence.Entity;
@@ -7,12 +8,11 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@Data
-@Entity
+import java.util.List;
 
 //This Product API
 @RestController
-@RequestMapping("product") //This is the main directory for Product API
+@RequestMapping("/product") //This is the main directory for Product API
 public class ProductController {
 
     @Autowired
@@ -34,5 +34,11 @@ public class ProductController {
         productServices.deleteProductDetails(productDetails);
         return "Success";
     }
+
+    @GetMapping("getAll")
+    public List<ProductDTO> getProduct(){
+        return productServices.getProducts();
+    }
+
 
 }
