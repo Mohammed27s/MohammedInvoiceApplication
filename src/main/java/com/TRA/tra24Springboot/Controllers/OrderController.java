@@ -1,6 +1,7 @@
 package com.TRA.tra24Springboot.Controllers;
 
 
+import com.TRA.tra24Springboot.DTO.OrderDTO;
 import com.TRA.tra24Springboot.Models.*;
 import com.TRA.tra24Springboot.Services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,9 @@ public class OrderController {
         return "Success";
     }
 
+    @GetMapping("getAll")
+    public List<OrderDTO> getOrder(){
+        return orderService.getOrders();
+    }
 
 }

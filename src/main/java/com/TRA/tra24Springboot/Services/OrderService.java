@@ -1,5 +1,6 @@
 package com.TRA.tra24Springboot.Services;
 
+import com.TRA.tra24Springboot.DTO.OrderDTO;
 import com.TRA.tra24Springboot.Models.Order;
 import com.TRA.tra24Springboot.Repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +46,10 @@ public class OrderService {
         return "Success";
     }
 
+    public List<OrderDTO>getOrders(){
+        List<Order> orders = orderRepository.findAll();
+        return OrderDTO.convertToDTO(orders);
 
-
+    }
 
 }

@@ -1,4 +1,5 @@
 package com.TRA.tra24Springboot.Controllers;
+import com.TRA.tra24Springboot.DTO.InventoryDTO;
 import com.TRA.tra24Springboot.Models.Inventory;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Services.InventoryServices;
@@ -35,6 +36,12 @@ public class InventoryController {
         inventoryServices.deleteInventoryByLocation(loc);
         return "Success";
     }
+
+    @GetMapping("getAll")
+    public List<InventoryDTO> getInventory(){
+        return inventoryServices.getInventory();
+    }
+
 
 
 }

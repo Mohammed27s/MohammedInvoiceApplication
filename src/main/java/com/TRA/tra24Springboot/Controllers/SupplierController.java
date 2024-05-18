@@ -2,6 +2,7 @@ package com.TRA.tra24Springboot.Controllers;
 
 //This is Supplier API
 
+import com.TRA.tra24Springboot.DTO.SupplierDTO;
 import com.TRA.tra24Springboot.Models.*;
 import com.TRA.tra24Springboot.Services.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,10 @@ public class SupplierController {
     }
 
 
+    @GetMapping("getAll")
+    public List<SupplierDTO> getSupplier(){
+        return supplierService.getSuppliers();
+    }
 
 
 
