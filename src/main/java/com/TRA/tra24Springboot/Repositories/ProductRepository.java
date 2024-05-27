@@ -14,4 +14,5 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     Product getByProductDetails(@Param("ProductDetails") String productDetails);
 
 
+    //Create new query to select specific data in Product table
 }

@@ -18,8 +18,8 @@ public class Inventory extends BaseEntity {
     List<Product> products;
     String location;
     String manager;//TODO: Update once user class created //Done
-    @OneToMany
-    @Cascade(CascadeType.ALL)
+/*    @OneToMany
+    @Cascade(CascadeType.ALL)*/
     List<String> workers; //TODO: Update user class created //Done
     String supplier; //TODO: Update once supplier class created //Done
     String phoneNumber;

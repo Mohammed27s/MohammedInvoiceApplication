@@ -20,7 +20,7 @@ public class ProductServices {
 
 
     public Product saveProduct(Product product){
-
+    //Add more information for this class
         product.setCreatedDate(new Date());
         product.setIsActive(Boolean.TRUE);
 

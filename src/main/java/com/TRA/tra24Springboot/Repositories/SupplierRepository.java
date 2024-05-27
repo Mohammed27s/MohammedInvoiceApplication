@@ -7,7 +7,8 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-
+//use sql to
+// retrieve all data from database
 public interface SupplierRepository extends JpaRepository<Supplier, Integer> {
 
 
@@ -18,4 +19,5 @@ public interface SupplierRepository extends JpaRepository<Supplier, Integer> {
     List<Supplier> getSupplierByProductOffer(@Param("pOffer") String productsOffered);
 
 
+    //Create new query to select specific data in supplier table
 }

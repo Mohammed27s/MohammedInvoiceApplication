@@ -30,8 +30,8 @@ public class OrderController {
         return "Success";
     }
 
-    @PostMapping("deleteByProductsOrdered") //This to delete the whole orders information in
-                                           //in order Database
+    @PostMapping("deleteByProductsOrdered") //This to delete the whole orders information in order Database
+
     public String deleteOrderByProductsOrdered(@RequestParam String pro){
         orderService.deleteOrderByProductsOrdered(pro);
         return "Success";

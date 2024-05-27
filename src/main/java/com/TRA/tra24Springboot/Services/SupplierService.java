@@ -18,9 +18,9 @@ public class SupplierService {
     SupplierRepository supplierRepository;
 
     public Supplier saveSupplier(Supplier supplier){
+        //Add more information for this class
         supplier.setCreatedDate(new Date());
         supplier.setIsActive(Boolean.TRUE);
-
         return supplierRepository.save(supplier);
     }
 

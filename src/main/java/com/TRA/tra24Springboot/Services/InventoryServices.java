@@ -17,7 +17,7 @@ public class InventoryServices {
     InventoryRepository inventoryRepository;
 
     public Inventory saveInventory(Inventory inventory){ //This is for saving the inventory  Information
-
+        //Add more information for this class
         inventory.setCreatedDate(new Date());
         inventory.setIsActive(Boolean.TRUE);
 

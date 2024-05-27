@@ -16,4 +16,6 @@ public interface InventoryRepository extends JpaRepository<Inventory, Integer> {
     List<Inventory> getInventoryByLocation(@Param("loc") String location);
 
 
+    //Create new query to select specific data in inventory table
+
 }

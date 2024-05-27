@@ -2,11 +2,13 @@ package com.TRA.tra24Springboot.Services;
 
 import com.TRA.tra24Springboot.DTO.OrderDTO;
 import com.TRA.tra24Springboot.Models.Order;
+import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -16,11 +18,11 @@ public class OrderService {
     @Autowired
     OrderRepository orderRepository;
 
-    public Order saveOrder(Order order){
 
+    public Order saveOrder(Order order){
+    //Add more information for this class
         order.setCreatedDate(new Date());
         order.setIsActive(Boolean.TRUE);
-
         return orderRepository.save(order);
     }
 
@@ -33,9 +35,9 @@ public class OrderService {
         return "Success";
     }
 
-    public String deleteOrderByProductsOrdered(String productsOrdered){
+    public String deleteOrderByProductsOrdered(List<Product> productsOrdered){ //Delete a specific order class
 
-        List<Order> orders = orderRepository.getByOrderProductsOrdered(productsOrdered);
+        List<Order> orders = Collections.singletonList(orderRepository.getByOrderProductsOrdered(productsOrdered));
         List<Order> updatedOrderList = new ArrayList<>();
 
         for(Order order: orders){
