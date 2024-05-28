@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ProductServices {
@@ -22,8 +23,12 @@ public class ProductServices {
     public Product saveProduct(Product product){
     //Add more information for this class
         product.setCreatedDate(new Date());
+        product.setId(565644455);
         product.setIsActive(Boolean.TRUE);
-
+        product.setProductDetails(product.getProductDetails());
+        product.setSku(UUID.randomUUID()); //This is to generate random unique id
+        product.setQuantity(1);
+        product.setCategory("Electronic");
         return productRepository.save(product);
     }
 

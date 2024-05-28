@@ -1,8 +1,7 @@
 package com.TRA.tra24Springboot.Services;
 
 import com.TRA.tra24Springboot.DTO.OrderDTO;
-import com.TRA.tra24Springboot.Models.Order;
-import com.TRA.tra24Springboot.Models.Product;
+import com.TRA.tra24Springboot.Models.*;
 import com.TRA.tra24Springboot.Repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +22,17 @@ public class OrderService {
     //Add more information for this class
         order.setCreatedDate(new Date());
         order.setIsActive(Boolean.TRUE);
+        order.setOrderDate(new Date());
+        order.setId(55542442);
+        order.setProductsOrdered(order.getProductsOrdered());
+        order.setCategoryName(order.getCategoryName());
+        order.setOrderDate(order.getOrderDate()); //This could be changed later
+        order.setStatus(OrderStatus.SHIPPED);
+        order.setDescription("This is Iphone 14");
+        order.setPaymentStatus(PaymentStatus.PAID);
+        order.setPaymentType(PaymentType.BANK_TRANSFER);
+        order.setDueDate(new Date());
+
         return orderRepository.save(order);
     }
 
@@ -48,7 +58,7 @@ public class OrderService {
         return "Success";
     }
 
-    public List<OrderDTO>getOrders(){
+    public List<OrderDTO>getOrders(){ //This is to get all the orders that are existing
         List<Order> orders = orderRepository.findAll();
         return OrderDTO.convertToDTO(orders);
 

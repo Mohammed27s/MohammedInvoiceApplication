@@ -5,7 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface ProductRepository extends JpaRepository<Product, Integer> {
+import java.util.UUID;
+
+public interface ProductRepository extends JpaRepository<Product, UUID> { //just remove Integer
 
     @Query("SELECT pi from product p WHERE pi.sku =:sku")
     Product getByIdNumber(@Param("sku") String sku);
@@ -15,4 +17,5 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
 
     //Create new query to select specific data in Product table
+
 }

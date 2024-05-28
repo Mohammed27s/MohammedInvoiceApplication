@@ -1,11 +1,14 @@
 package com.TRA.tra24Springboot.Services;
 
 import com.TRA.tra24Springboot.DTO.SupplierDTO;
+import com.TRA.tra24Springboot.Models.PaymentMethods;
 import com.TRA.tra24Springboot.Models.Supplier;
 import com.TRA.tra24Springboot.Repositories.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,6 +24,21 @@ public class SupplierService {
         //Add more information for this class
         supplier.setCreatedDate(new Date());
         supplier.setIsActive(Boolean.TRUE);
+        supplier.setCompanyName("DHL");
+        supplier.setCountry("Oman");
+        supplier.setProductsOffered(supplier.getProductsOffered());
+        supplier.setNextDeliveryTime(Date.from(LocalDateTime.of(2024, 5, 28, 10, 0)
+                .atZone(ZoneId.systemDefault())
+                .toInstant()));
+        supplier.setExpectedProducts(supplier.getExpectedProducts());
+        supplier.setComplaints("There is no Complaints from customer");
+        supplier.setPaymentMethods(supplier.getPaymentMethods());
+        supplier.setShippingMethods("Truck");
+        supplier.setMinimumOrderQuantity("10");
+        supplier.setOrders(supplier.getOrders());
+
+        //supplier.setContactDetails(); This class should be created
+
         return supplierRepository.save(supplier);
     }
 
