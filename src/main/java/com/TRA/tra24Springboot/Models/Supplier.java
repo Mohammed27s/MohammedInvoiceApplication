@@ -3,7 +3,6 @@ package com.TRA.tra24Springboot.Models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.OneToOne;
 import lombok.Data;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;

@@ -1,39 +1,36 @@
 package com.TRA.tra24Springboot.Controllers;
 
-
 import com.TRA.tra24Springboot.DTO.OrderDTO;
-import com.TRA.tra24Springboot.Models.*;
+import com.TRA.tra24Springboot.Models.Order;
+import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-//This is Order API
+// This is Order API
 @RestController
-@RequestMapping("order") //This is the main Directory for order
+@RequestMapping("/order") // This is the main Directory for order
 public class OrderController {
 
     @Autowired
     OrderService orderService;
 
-    @PostMapping("save") //This is to save all order information
+    @PostMapping("save") // This is to save all order information
     public Order saveOrder(@RequestBody Order order){
         return orderService.saveOrder(order);
     }
 
-    @PostMapping("delete") //This is to delete one element from Order Database
+    @PostMapping("delete") // This is to delete one element from Order Database
     public String deleteOrder(@RequestParam String categoryName){
         orderService.deleteOrder(categoryName);
         return "Success";
     }
 
-    @PostMapping("deleteByProductsOrdered") //This to delete the whole orders information in
-                                           //in order Database
-    public String deleteOrderByProductsOrdered(@RequestParam List<Product> pro){ //There is issue here
-        orderService.deleteOrderByProductsOrdered(pro);
+    @PostMapping("deleteByProductsOrdered") // This to delete the whole orders information in order Database
+    public String deleteOrderByProductsOrdered(@RequestBody List<Product> productsOrdered){ // There is issue here
+        orderService.deleteOrderByProductsOrdered(productsOrdered);
         return "Success";
     }
 
@@ -41,5 +38,4 @@ public class OrderController {
     public List<OrderDTO> getOrder(){
         return orderService.getOrders();
     }
-
 }

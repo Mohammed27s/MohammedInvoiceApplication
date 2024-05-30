@@ -1,7 +1,7 @@
 package com.TRA.tra24Springboot.Services;
 
 import com.TRA.tra24Springboot.DTO.SupplierDTO;
-import com.TRA.tra24Springboot.Models.PaymentMethods;
+import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.Supplier;
 import com.TRA.tra24Springboot.Repositories.SupplierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import java.util.List;
 
 @Service
 public class SupplierService {
-
 
     @Autowired
     SupplierRepository supplierRepository;
@@ -49,10 +48,9 @@ public class SupplierService {
         supplierRepository.save(supplierFromDb);
 
         return "Success";
-
     }
 
-    public String deleteSupplierByProductsOffered(String productsOffered){
+    public String deleteSupplierByProductsOffered(List<Product> productsOffered){
 
         List<Supplier> suppliers = supplierRepository.getSupplierByProductOffer(productsOffered);
         List<Supplier> updateSupplierList = new ArrayList<>();
@@ -64,13 +62,10 @@ public class SupplierService {
 
         supplierRepository.saveAll(updateSupplierList);
         return "Success";
-
     }
 
-    public List<SupplierDTO>getSuppliers(){
+    public List<SupplierDTO> getSuppliers(){
         List<Supplier> suppliers = supplierRepository.findAll();
         return SupplierDTO.convertToDo(suppliers);
     }
-
-
 }

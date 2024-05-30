@@ -3,6 +3,7 @@ package com.TRA.tra24Springboot.Services;
 
 import com.TRA.tra24Springboot.DTO.ProductDTO;
 import com.TRA.tra24Springboot.Models.Product;
+import com.TRA.tra24Springboot.Models.ProductDetails;
 import com.TRA.tra24Springboot.Repositories.InventoryRepository;
 import com.TRA.tra24Springboot.Repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class ProductServices {
         return productRepository.save(product);
     }
 
-    public String deleteProduct(String sku){
+    public String deleteProduct(UUID sku){
 
         Product productFromDb = productRepository.getByIdNumber(sku);
         productFromDb.setIsActive(Boolean.FALSE);
@@ -40,7 +41,7 @@ public class ProductServices {
         return "Success";
     }
 
-    public String deleteProductDetails(String productDetails){
+    public String deleteProductDetails(ProductDetails productDetails){
 
         Product products = productRepository.getByProductDetails(productDetails);
         products.setIsActive(Boolean.FALSE);

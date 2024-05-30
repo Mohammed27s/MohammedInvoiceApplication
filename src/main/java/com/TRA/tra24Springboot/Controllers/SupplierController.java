@@ -7,10 +7,6 @@ import com.TRA.tra24Springboot.Models.*;
 import com.TRA.tra24Springboot.Services.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.sql.Time;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -23,7 +19,6 @@ public class SupplierController {
 
     @PostMapping("save")
     public Supplier saveSupplier(@RequestBody Supplier supplier){
-
         return supplierService.saveSupplier(supplier);
 
     }
@@ -36,7 +31,7 @@ public class SupplierController {
     }
 
     @PostMapping("deleteByProductsOffered")
-    public String deleteSupplierByProductsOffered(@RequestParam String pOffer){
+    public String deleteSupplierByProductsOffered(@RequestParam List<Product> pOffer){
         supplierService.deleteSupplierByProductsOffered(pOffer);
         return "Success";
 
@@ -46,6 +41,7 @@ public class SupplierController {
     @GetMapping("getAll")
     public List<SupplierDTO> getSupplier(){
         return supplierService.getSuppliers();
+
     }
 
 

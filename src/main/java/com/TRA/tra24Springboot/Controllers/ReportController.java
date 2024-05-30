@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+// Hint: The main propose of this Controller is just to get all other controller and fetch their exiting information
+
 //This is a Report API
 @RestController
 @RequestMapping("report") //This is the main Directory for Report

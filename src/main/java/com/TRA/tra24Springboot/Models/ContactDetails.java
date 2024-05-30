@@ -7,9 +7,8 @@ import lombok.Data;
 @Entity
 @Table(name = "Contacts")
 public class ContactDetails extends BaseEntity {
+  //These attributes for Contact Details
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
 
     String email;
     String phoneNumber;

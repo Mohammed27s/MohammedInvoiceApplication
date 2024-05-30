@@ -12,8 +12,6 @@ public class Product extends BaseEntity {
 
     Integer quantity;
     String category;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     UUID sku; //This is the id for product
     @OneToOne
     ProductDetails productDetails; //This for each product it will has it own description

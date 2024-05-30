@@ -1,5 +1,6 @@
 package com.TRA.tra24Springboot.Repositories;
 
+import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.Supplier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -7,17 +8,17 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-//use sql to
-// retrieve all data from database
 public interface SupplierRepository extends JpaRepository<Supplier, Integer> {
 
-
-    @Query("SELECT su from Supplier su WHERE su.companyName =:companyName")
+    @Query("SELECT su FROM Supplier su WHERE su.companyName = :companyName") //This query for getting Supplier companyName from Database
     Supplier getBySupplierName(@Param("companyName") String companyName);
 
-    @Query("SELECT px from Supplier px WHERE px.productsOffered =:pOffer")
-    List<Supplier> getSupplierByProductOffer(@Param("pOffer") String productsOffered);
+    @Query("SELECT s FROM Supplier s JOIN s.productsOffered p WHERE p IN :pOffer") //This query for getting Supplier productsOffered from Database
+    List<Supplier> getSupplierByProductOffer(@Param("pOffer") List<Product> productsOffered);
 
+    @Query("SELECT sc FROM Supplier sc WHERE sc.country = :con") //This query for getting Supplier country from Database
+    Supplier getBySupplierCountry(@Param("con") String country);
 
-    //Create new query to select specific data in supplier table
+    @Query("SELECT sp FROM Supplier sp WHERE sp.shippingMethods = :shm") //This query for getting Supplier shippingMethods from Database
+    Supplier getBySupplierShippingMethods(@Param("shm") String shippingMethods);
 }

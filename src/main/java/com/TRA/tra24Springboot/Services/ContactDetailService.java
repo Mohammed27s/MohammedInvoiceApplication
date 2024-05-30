@@ -7,6 +7,7 @@ import com.TRA.tra24Springboot.Repositories.ContactDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -16,8 +17,6 @@ public class ContactDetailService {
     @Autowired
     ContactDetailRepository contactDetailRepository;
 
-    @Autowired
-    ContactDetailService contactDetailService;
 
 
     public ContactDetails saveContactDetails(ContactDetails contactDetails){
@@ -50,15 +49,15 @@ public class ContactDetailService {
         contactDetailsFromDb.setIsActive(Boolean.FALSE);
         contactDetailRepository.save(contactDetailsFromDb);
 
-
         return "Success";
     }
 
 
-    public ContactDetailDTO getContactDetails(){
+    public List<ContactDetailDTO> getContactDetails(){
 
-        ContactDetails contactDetails = contactDetailRepository.findOne();
-        return ContactDetailDTO.convertToDTO(contactDetails);
+        List<ContactDetails> contactDetail = contactDetailRepository.findAll();
+        return ContactDetailDTO.convertToDTO(contactDetail);
+
     }
 
 

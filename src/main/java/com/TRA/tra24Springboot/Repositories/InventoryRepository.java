@@ -9,13 +9,18 @@ import java.util.List;
 public interface InventoryRepository extends JpaRepository<Inventory, Integer> {
 
 
-    @Query("SELECT i from Inventory i WHERE i.manager =:managerName")
+    @Query("SELECT i from Inventory i WHERE i.manager =:managerName") //This query for getting Inventory managerName from Database
     Inventory getByInventoryManagerName(@Param("managerName") String managerName);
 
-    @Query("SELECT il from Inventory il WHERE il.location =:loc")
+    @Query("SELECT il from Inventory il WHERE il.location =:loc") //This query for getting Inventory location from Database
     List<Inventory> getInventoryByLocation(@Param("loc") String location);
 
+    @Query("SELECT sn from Inventory sn WHERE sn.supplier =:sup") //This query for getting Inventory supplier from Database
+    Inventory getInventoryBySupplier(@Param("sup") String supplier);
 
-    //Create new query to select specific data in inventory table
+    @Query("SELECT ph from Inventory ph WHERE ph.phoneNumber =:ph") //This query fro getting Inventory phoneNumber from Database
+    Inventory getInventoryByPhoneNumber(@Param("ph") String phoneNumber);
+
+
 
 }
