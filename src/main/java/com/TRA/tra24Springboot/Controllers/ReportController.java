@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 //This is a Report API
 @RestController
-@RequestMapping("report") //This is the main Directory for Report
+@RequestMapping("/report") //This is the main Directory for Report
 public class ReportController {
     @Autowired
     ProductController productController; //This is to get all exiting Products

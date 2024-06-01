@@ -21,15 +21,18 @@ public class ContactDetailService {
 
     public ContactDetails saveContactDetails(ContactDetails contactDetails){
 
-        contactDetails.setCreatedDate(new Date());
-        contactDetails.setIsActive(Boolean.TRUE);
-        contactDetails.setEmail("admin.com@Outlook.com");
-        contactDetails.setPhoneNumber("+968 9656456563");
-        contactDetails.setFaxNumber("A675553");
-        contactDetails.setAddress("Muscat");
-        contactDetails.setPostalCode("FG7673733");
 
-        return contactDetailRepository.save(contactDetails);
+
+            contactDetails.setCreatedDate(new Date());
+            contactDetails.setIsActive(Boolean.TRUE);
+            contactDetails.setEmail("admin.com@Outlook.com");
+            contactDetails.setPhoneNumber("+968 9656456563");
+            contactDetails.setFaxNumber("A675553");
+            contactDetails.setAddress("Muscat");
+            contactDetails.setPostalCode("FG7673733");
+
+            return contactDetailRepository.save(contactDetails);
+
     }
 
     public String deleteContactDetailsByPhoneNumber(String phoneNumber){

@@ -52,6 +52,12 @@
 			<version>2.0.2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.slack.api</groupId>
+			<artifactId>slack-api-client</artifactId>
+			<version>1.27.2</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
