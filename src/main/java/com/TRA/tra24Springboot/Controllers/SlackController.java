@@ -17,7 +17,7 @@ public class SlackController {
     SlackService slackService;
 
 
-
+ //This is for getting input from user
     @GetMapping("messages") //This is slack message API
     public void sendMessage(@RequestParam String channel,
                             @RequestParam String message){

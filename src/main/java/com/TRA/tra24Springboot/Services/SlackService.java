@@ -15,7 +15,7 @@ public class SlackService {
     private String slackToken;
 
     //@Scheduled(cron = "* 0/1 * * * ?") //this is corn API used for Scheduling alert. by sending alert to slack app
-    //For safety reason i comment this one
+    //For safety reason i comment this code
     public void sendSchedueldMessageOnSlack(){
         String channel = "#random";
         String message = "Testing corn";
