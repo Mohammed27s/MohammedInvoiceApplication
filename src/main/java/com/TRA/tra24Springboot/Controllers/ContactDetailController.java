@@ -7,7 +7,6 @@ import com.TRA.tra24Springboot.Services.ContactDetailService;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Data
