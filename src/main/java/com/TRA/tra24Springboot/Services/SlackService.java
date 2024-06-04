@@ -10,17 +10,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class SlackService {
-
     @Value("${slack.integration.token}") //This is storing the token value
     private String slackToken;
+    //slack.integration.token=xoxp-6579037640593-6579067155137-7203256675302-d514931bd50f75762ffa751bfdbb489e This is token
 
-    //@Scheduled(cron = "* 0/1 * * * ?") //this is corn API used for Scheduling alert. by sending alert to slack app
+    /*@Scheduled(cron = "* 0/1 * * * ?") //this is corn API used for Scheduling alert. by sending alert to slack app
     //For safety reason i comment this code
     public void sendSchedueldMessageOnSlack(){
         String channel = "#random";
         String message = "Testing corn";
         sendMessage(channel, message);
     }
+                                           */ //This stopped
 
     public void sendMessage(String channel, String message){
         Slack slack = Slack.getInstance();
