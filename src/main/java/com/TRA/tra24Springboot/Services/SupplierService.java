@@ -20,52 +20,67 @@ public class SupplierService {
     SupplierRepository supplierRepository;
 
     public Supplier saveSupplier(Supplier supplier){
-        //Add more information for this class
-        supplier.setCreatedDate(new Date());
-        supplier.setIsActive(Boolean.TRUE);
-        supplier.setCompanyName("DHL");
-        supplier.setCountry("Oman");
-        supplier.setProductsOffered(supplier.getProductsOffered());
-        supplier.setNextDeliveryTime(Date.from(LocalDateTime.of(2024, 5, 28, 10, 0)
-                .atZone(ZoneId.systemDefault())
-                .toInstant()));
-        supplier.setExpectedProducts(supplier.getExpectedProducts());
-        supplier.setComplaints("There is no Complaints from customer");
-        supplier.setPaymentMethods(supplier.getPaymentMethods());
-        supplier.setShippingMethods("Truck");
-        supplier.setMinimumOrderQuantity("10");
-        supplier.setOrders(supplier.getOrders());
+        try {
+            supplier.setCreatedDate(new Date());
+            supplier.setIsActive(Boolean.TRUE);
+            supplier.setCompanyName("DHL");
+            supplier.setCountry("Oman");
+            supplier.setProductsOffered(supplier.getProductsOffered());
+            supplier.setNextDeliveryTime(Date.from(LocalDateTime.of(2024, 5, 28, 10, 0)
+                    .atZone(ZoneId.systemDefault())
+                    .toInstant()));
+            supplier.setExpectedProducts(supplier.getExpectedProducts());
+            supplier.setComplaints("There is no Complaints from customer");
+            supplier.setPaymentMethods(supplier.getPaymentMethods());
+            supplier.setShippingMethods("Truck");
+            supplier.setMinimumOrderQuantity("10");
+            supplier.setOrders(supplier.getOrders());
+            supplier.setContactDetails(supplier.getContactDetails());
 
-        //supplier.setContactDetails(); This class should be created
-
-        return supplierRepository.save(supplier);
+            return supplierRepository.save(supplier);
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to save supplier", e);
+        }
     }
 
     public String deleteSupplier(String companyName){
-
-        Supplier supplierFromDb = supplierRepository.getBySupplierName(companyName);
-        supplierFromDb.setIsActive(Boolean.FALSE);
-        supplierRepository.save(supplierFromDb);
-
-        return "Success";
+        try {
+            Supplier supplierFromDb = supplierRepository.getBySupplierName(companyName);
+            supplierFromDb.setIsActive(Boolean.FALSE);
+            supplierRepository.save(supplierFromDb);
+            return "Success";
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to delete supplier by company name", e);
+        }
     }
 
     public String deleteSupplierByProductsOffered(List<Product> productsOffered){
+        try {
+            List<Supplier> suppliers = supplierRepository.getSupplierByProductOffer(productsOffered);
+            List<Supplier> updateSupplierList = new ArrayList<>();
 
-        List<Supplier> suppliers = supplierRepository.getSupplierByProductOffer(productsOffered);
-        List<Supplier> updateSupplierList = new ArrayList<>();
+            for(Supplier supplier: suppliers){
+                supplier.setIsActive(false);
+                updateSupplierList.add(supplier);
+            }
 
-        for(Supplier supplier: suppliers){
-            supplier.setIsActive(false);
-            updateSupplierList.add(supplier);
+            supplierRepository.saveAll(updateSupplierList);
+            return "Success";
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to delete supplier by products offered", e);
         }
-
-        supplierRepository.saveAll(updateSupplierList);
-        return "Success";
     }
 
     public List<SupplierDTO> getSuppliers(){
-        List<Supplier> suppliers = supplierRepository.findAll();
-        return SupplierDTO.convertToDo(suppliers);
+        try {
+            List<Supplier> suppliers = supplierRepository.findAll();
+            return SupplierDTO.convertToDo(suppliers);
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to get suppliers", e);
+        }
     }
 }

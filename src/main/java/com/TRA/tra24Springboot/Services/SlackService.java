@@ -23,18 +23,19 @@ public void sendSchedueldMessageOnSlack(){
     sendMessage(channel, message);
 }
 */ //for safety reasons i stopped this corn api
+
   public void sendMessage(String channel, String message){
    Slack slack = Slack.getInstance();
    String token = slackToken; //Your Slack API token
 
-      channel = "#random";
-      message = "Testing corn api";
+      channel = "#random"; //This the name of the channel
+      message = "Testing corn api"; //This is for the text message
 
    ChatPostMessageRequest request = ChatPostMessageRequest.builder().channel(channel).text(message).build();
 
 
    try {
-
+       //This exception handling used for making sure the application is working
        ChatPostMessageResponse response = slack.methods(token).chatPostMessage(request);
        if (response.isOk()) {
            System.out.println("Message sent successfully to Slack app!");
