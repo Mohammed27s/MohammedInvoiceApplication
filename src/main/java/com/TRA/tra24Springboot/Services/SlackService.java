@@ -28,8 +28,8 @@ public void sendSchedueldMessageOnSlack(){
    Slack slack = Slack.getInstance();
    String token = slackToken; //Your Slack API token
 
-      channel = "#random"; //This the name of the channel
-      message = "Testing corn api"; //This is for the text message
+      //channel = "#random"; //This the name of the channel
+      //message = "Testing corn api"; //This is for the text message
 
    ChatPostMessageRequest request = ChatPostMessageRequest.builder().channel(channel).text(message).build();
 

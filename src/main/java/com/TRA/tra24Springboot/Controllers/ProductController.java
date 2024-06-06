@@ -20,6 +20,7 @@ public class ProductController {
     @Autowired
     ProductServices productServices;
 
+    //all the APIs has Exception Handling
     @PostMapping("save") //This is to save all data in Product
     public Product saveProduct(@RequestBody Product product){
         return productServices.saveProduct(product);
