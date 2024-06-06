@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class EmailController {
 
     @Autowired
-    EmailService emailService;
+    EmailService emailService; //This is for saving the get request
 
     @GetMapping("send") //This is SubDirectory for email
     public void sendSimpleMail(String toEmail, String fromEmail, String emailBody, String subject) {
