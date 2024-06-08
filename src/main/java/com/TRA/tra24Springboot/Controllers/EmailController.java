@@ -15,6 +15,11 @@ public class EmailController {
 
     @GetMapping("send") //This is SubDirectory for email
     public void sendSimpleMail(String toEmail, String fromEmail, String emailBody, String subject) {
-        emailService.sendSimpleMail(toEmail, fromEmail, emailBody, subject);
+        try {
+            emailService.sendSimpleMail(toEmail, fromEmail, emailBody, subject);
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to send email", e);
+        }
     }
 }

@@ -16,34 +16,47 @@ public class SupplierController {
     @Autowired
     SupplierService supplierService;
 
-
     @PostMapping("save")
     public Supplier saveSupplier(@RequestBody Supplier supplier){
-        return supplierService.saveSupplier(supplier);
-
+        try {
+            return supplierService.saveSupplier(supplier);
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to save supplier", e);
+        }
     }
 
     @PostMapping("delete")
     public String deleteSupplier(@RequestParam String companyName){
-        supplierService.deleteSupplier(companyName);
-        return "Success";
-
+        try {
+            supplierService.deleteSupplier(companyName);
+            return "Success";
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to delete supplier by company name", e);
+        }
     }
 
     @PostMapping("deleteByProductsOffered")
     public String deleteSupplierByProductsOffered(@RequestParam List<Product> pOffer){
-        supplierService.deleteSupplierByProductsOffered(pOffer);
-        return "Success";
-
+        try {
+            supplierService.deleteSupplierByProductsOffered(pOffer);
+            return "Success";
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to delete suppliers by products offered", e);
+        }
     }
 
+    //Updated here
 
     @GetMapping("getAll")
     public List<SupplierDTO> getSupplier(){
-        return supplierService.getSuppliers();
-
+        try {
+            return supplierService.getSuppliers();
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to get suppliers", e);
+        }
     }
-
-
-
 }

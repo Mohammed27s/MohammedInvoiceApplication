@@ -19,23 +19,44 @@ public class OrderController {
 
     @PostMapping("save") // This is to save all order information
     public Order saveOrder(@RequestBody Order order){
-        return orderService.saveOrder(order);
+        try {
+            return orderService.saveOrder(order);
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to save order", e);
+        }
     }
 
     @PostMapping("delete") // This is to delete one element from Order Database
     public String deleteOrder(@RequestParam String categoryName){
-        orderService.deleteOrder(categoryName);
-        return "Success";
+        try {
+            orderService.deleteOrder(categoryName);
+            return "Success";
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to delete order by category name", e);
+        }
     }
 
+    //Updated here
     @PostMapping("deleteByProductsOrdered") // This to delete the whole orders information in order Database
     public String deleteOrderByProductsOrdered(@RequestBody List<Product> productsOrdered){ // There is issue here
-        orderService.deleteOrderByProductsOrdered(productsOrdered);
-        return "Success";
+        try {
+            orderService.deleteOrderByProductsOrdered(productsOrdered);
+            return "Success";
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to delete order by products ordered", e);
+        }
     }
 
     @GetMapping("getAll")
     public List<OrderDTO> getOrder(){
-        return orderService.getOrders();
+        try {
+            return orderService.getOrders();
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to get orders", e);
+        }
     }
 }

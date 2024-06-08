@@ -19,6 +19,7 @@ public class SupplierService {
     @Autowired
     SupplierRepository supplierRepository;
 
+    //Exception Handling has been added to all
     public Supplier saveSupplier(Supplier supplier){
         try {
             supplier.setCreatedDate(new Date());

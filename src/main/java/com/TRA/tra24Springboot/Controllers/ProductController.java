@@ -4,8 +4,6 @@ import com.TRA.tra24Springboot.DTO.ProductDTO;
 import com.TRA.tra24Springboot.Models.Product;
 import com.TRA.tra24Springboot.Models.ProductDetails;
 import com.TRA.tra24Springboot.Services.ProductServices;
-import jakarta.persistence.Entity;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,24 +21,44 @@ public class ProductController {
     //all the APIs has Exception Handling
     @PostMapping("save") //This is to save all data in Product
     public Product saveProduct(@RequestBody Product product){
-        return productServices.saveProduct(product);
+        try {
+            return productServices.saveProduct(product);
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to save product", e);
+        }
     }
 
     @PostMapping("delete") //This is to delete single element in Product
     public String deleteProduct(@RequestParam UUID sku){
-        productServices.deleteProduct(sku);
-        return "Success";
+        try {
+            productServices.deleteProduct(sku);
+            return "Success";
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to delete product by SKU", e);
+        }
     }
 
     @PostMapping("deleteByProductDetails") //This is to delete multiples elements in Product
     public String deleteByProductDetails(@RequestParam ProductDetails productDetails){
-        productServices.deleteProductDetails(productDetails);
-        return "Success";
+        try {
+            productServices.deleteProductDetails(productDetails);
+            return "Success";
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to delete products by product details", e);
+        }
     }
 
+    //Updated here
     @GetMapping("getAll")
     public List<ProductDTO> getProduct(){
-        return productServices.getProducts();
+        try {
+            return productServices.getProducts();
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to get products", e);
+        }
     }
-
 }
