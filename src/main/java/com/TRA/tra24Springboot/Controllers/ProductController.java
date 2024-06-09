@@ -52,7 +52,8 @@ public class ProductController {
     }
 
     //Updated here
-    @GetMapping("getAll")
+
+    @GetMapping("getAll") //This is to get all existing products from Database
     public List<ProductDTO> getProduct(){
         try {
             return productServices.getProducts();

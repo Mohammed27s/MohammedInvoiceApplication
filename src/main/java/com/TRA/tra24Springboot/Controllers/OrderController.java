@@ -50,7 +50,7 @@ public class OrderController {
         }
     }
 
-    @GetMapping("getAll")
+    @GetMapping("getAll") //This is to get all existing information about Order from Database
     public List<OrderDTO> getOrder(){
         try {
             return orderService.getOrders();

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("email") //This is the main directory for email api
+@RequestMapping("/email") //This is the main directory for email api
 public class EmailController {
 
     @Autowired

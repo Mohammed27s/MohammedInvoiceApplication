@@ -10,11 +10,11 @@ import java.util.List;
 
 //This is Inventory API
 @RestController
-@RequestMapping("inventory") //This is the main Directory for the Inventory API
+@RequestMapping("/inventory") //This is the main Directory for the Inventory API
 public class InventoryController {
 
     @Autowired
-    InventoryServices inventoryServices;
+    InventoryServices inventoryServices; //This is for saving inventory information in Database
 
     @PostMapping("save") //This is to save all data in Inventory
     public Inventory saveInventory(@RequestBody Inventory inventory){ //This is to save all data in Inventory DataBase
@@ -50,7 +50,7 @@ public class InventoryController {
 
     //Updated here
 
-    @GetMapping("getAll")
+    @GetMapping("getAll") //This is to get all existing information from the Database
     public List<InventoryDTO> getInventory(){
         try {
             return inventoryServices.getInventory();

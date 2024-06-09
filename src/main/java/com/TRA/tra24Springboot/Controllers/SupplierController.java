@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("supplier") //This is the main directory to Supplier
+@RequestMapping("/supplier") //This is the main directory to Supplier
 public class SupplierController {
 
     @Autowired
     SupplierService supplierService;
 
-    @PostMapping("save")
+    @PostMapping("save") //This is to save Supplier information in Database
     public Supplier saveSupplier(@RequestBody Supplier supplier){
         try {
             return supplierService.saveSupplier(supplier);
@@ -26,7 +26,7 @@ public class SupplierController {
         }
     }
 
-    @PostMapping("delete")
+    @PostMapping("delete") //This is to delete supplier from supplier database
     public String deleteSupplier(@RequestParam String companyName){
         try {
             supplierService.deleteSupplier(companyName);
@@ -50,7 +50,7 @@ public class SupplierController {
 
     //Updated here
 
-    @GetMapping("getAll")
+    @GetMapping("getAll") //This to get all the existing suppliers from Database
     public List<SupplierDTO> getSupplier(){
         try {
             return supplierService.getSuppliers();

@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("slack") //This is the main directory for slack api
+@RequestMapping("/slack") //This is the main directory for slack api
 public class SlackController {
 
     @Autowired
-    SlackService slackService;
+    SlackService slackService; //This is service for getting the input from user
 
     // @Scheduled(cron = "* * * * * *") //This is scheduling slack alert every minute, hour, day of month,
     // month and day of week
