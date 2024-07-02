@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
+
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     @Query("SELECT c FROM Order c WHERE c.categoryName = :categoryName") //This query for getting Order categoryName from Database

@@ -16,7 +16,7 @@ public class SlackController {
 
     // @Scheduled(cron = "* * * * * *") //This is scheduling slack alert every minute, hour, day of month,
     // month and day of week
-    @GetMapping("mail") //This is SubDirectory
+    @GetMapping("message") //This is SubDirectory for slack api
     public void sendMessage(@RequestParam String channel, @RequestParam String message){
         try {
             slackService.sendMessage(channel, message);

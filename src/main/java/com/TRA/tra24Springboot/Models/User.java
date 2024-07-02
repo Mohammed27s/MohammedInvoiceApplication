@@ -16,7 +16,8 @@ public class User extends BaseEntity {
     @OneToOne
     ContactDetails contactDetails;
 
-    String accessPrivileges; //TODO: add an enum for accessPrivileges
+    AccessPrivileges accessPrivileges; //This Enum has crated
+
 
 
 }

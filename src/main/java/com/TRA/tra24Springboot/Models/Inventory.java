@@ -10,7 +10,6 @@ import java.util.List;
 
 @Data
 @Entity
-
 public class Inventory extends BaseEntity {
 
     @OneToMany
@@ -25,6 +24,5 @@ public class Inventory extends BaseEntity {
     String phoneNumber;
     String openingHours;
     String closingHours;
-
 
 }

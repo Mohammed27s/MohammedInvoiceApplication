@@ -10,7 +10,7 @@ import java.util.List;
 
 @Data
 @RestController
-@RequestMapping("/Contact") //This is the main directory for Contact Details
+@RequestMapping("/contact") //This is the main directory for Contact Details
 public class ContactDetailController {
 
     @Autowired
@@ -50,7 +50,7 @@ public class ContactDetailController {
 
     //Updated here
 
-    @GetMapping("getAll") //This for getting all Contact Details that already been created
+    @GetMapping("stored") //This for getting all Contact Details that already been created
     public List<ContactDetailDTO> getContactDetails(){
         try {
             return contactDetailService.getContactDetails();
