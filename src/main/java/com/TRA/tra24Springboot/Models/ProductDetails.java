@@ -2,7 +2,6 @@ package com.TRA.tra24Springboot.Models;
 
 import jakarta.persistence.Entity;
 import lombok.Data;
-
 import java.util.Date;
 
 @Data

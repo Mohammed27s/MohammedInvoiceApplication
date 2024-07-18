@@ -1,10 +1,12 @@
 package com.TRA.tra24Springboot.Models;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Entity
+@Builder
 @Table(name = "Contacts")
 public class ContactDetails extends BaseEntity {
   //These attributes for Contact Details
