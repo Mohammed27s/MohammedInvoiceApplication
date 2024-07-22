@@ -29,29 +29,34 @@ public class LoggingAspect {
     public static Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
 
-    @Pointcut(value = "execution(* com.tra.school.Controllers.SchoolController.*(..)")
-    public void pointCutDefinitionSchool(){}
-
-    @Before(value = "pointCutDefinitionSchool")
-    public void logBefore(ProceedingJoinPoint joinPoint) {
-        System.out.println("Before method: " + joinPoint.getSignature().getName());
+    @Pointcut(value = "execution(* com.tra.school.Controllers.SchoolController.*(..))")
+    public void pointCutDefinitionSchool() {
     }
 
-    @AfterReturning(value = "pointCutDefinitionSchool", returning = "result")
-    public void logAfterReturning(ProceedingJoinPoint joinPoint, Object result) {
-        System.out.println("After method: " + joinPoint.getSignature().getName() + ", Result: " + result);
+    @Before(value = "pointCutDefinitionSchool()")
+    public void logBefore(JoinPoint pjp) {
+        System.out.println("Before method: " + pjp.getSignature().getName());
     }
 
-    @Around(value = "pointCutDefinitionSchool")
+    @AfterReturning(value = "pointCutDefinitionSchool()", returning = "result")
+    public void logAfterReturning(JoinPoint pjp, Object result) {
+        System.out.println("After method: " + pjp.getSignature().getName() + ", Result: " + result);
+    }
+
+    @Around(value = "pointCutDefinitionSchool()")
     public Object applicationLogger(ProceedingJoinPoint pjp) throws Throwable {
         ObjectMapper mapper = new ObjectMapper();
+
         String methodName = pjp.getSignature().getName();
         String className = pjp.getTarget().getClass().toString();
         Object[] array = pjp.getArgs();
-        logger.info("method invoked " + className + " : " + methodName + "()" + "arguments : "
+
+        logger.info("\n***** Before function execution ****"+"\nThis class is running: " + className + "\nThis function is running " + methodName + "() " + "\nFunction arguments : "
                 + mapper.writeValueAsString(array));
+
         Object object = pjp.proceed();
-        logger.info(className + " : " + methodName + "()" + "Response : "
+
+        logger.info("\n**** After function execution ****"+ "\nThis class is running: " + className + "\nThis function is running " + methodName + "()" + "\nResponse : "
                 + mapper.writeValueAsString(object));
         return object;
     }
