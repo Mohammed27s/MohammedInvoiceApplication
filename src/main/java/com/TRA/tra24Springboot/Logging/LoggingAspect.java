@@ -43,7 +43,7 @@ public class LoggingAspect {
         System.out.println("After method: " + pjp.getSignature().getName() + ", Result: " + result);
     }
 
-    @Around(value = "pointCutDefinitionProduct()")
+    @Around(value = "pointCutDefinitionProduct()") //This is should not be used in the task only before and after and how long the function was running
     public Object applicationLogger(ProceedingJoinPoint pjp) throws Throwable {
         ObjectMapper mapper = new ObjectMapper();
 
