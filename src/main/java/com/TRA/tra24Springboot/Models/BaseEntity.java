@@ -3,16 +3,12 @@ package com.TRA.tra24Springboot.Models;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Generated;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Data
 @MappedSuperclass
-@Builder
-@Table(name = "Base")
 public class BaseEntity {
 
     @Id
@@ -20,6 +16,6 @@ public class BaseEntity {
     Integer id;
     Date createdDate;
     Date updatedDate;
-    Boolean isActive;
+    Boolean isActive; //There is an issue with the Boolean type
 
 }

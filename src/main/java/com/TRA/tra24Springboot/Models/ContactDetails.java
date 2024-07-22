@@ -4,10 +4,12 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 @Entity
 @Builder
-@Table(name = "Contacts")
+@Table(name = "ContactDetails")
 public class ContactDetails extends BaseEntity {
   //These attributes for Contact Details
 
