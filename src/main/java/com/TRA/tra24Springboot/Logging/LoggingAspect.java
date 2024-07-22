@@ -21,29 +21,29 @@ import org.slf4j.*;
 import org.springframework.stereotype.Component;
 
 
-//This is code must be change with contollers that are existing in this spring boot project
+//This is code must be Change with Controllers that are existing in this spring boot project
 @Aspect
 @Component
 public class LoggingAspect {
 
-    public static Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
+    public static Logger logger = (Logger) LoggerFactory.getLogger(LoggingAspect.class);
 
 
-    @Pointcut(value = "execution(* com.tra.school.Controllers.SchoolController.*(..))")
-    public void pointCutDefinitionSchool() {
+    @Pointcut(value = "execution(* com.TRA.tra24Springboot.ProductController.*(..))")
+    public void pointCutDefinitionProduct() { //This is point cut function
     }
 
-    @Before(value = "pointCutDefinitionSchool()")
+    @Before(value = "pointCutDefinitionProduct()")
     public void logBefore(JoinPoint pjp) {
         System.out.println("Before method: " + pjp.getSignature().getName());
     }
 
-    @AfterReturning(value = "pointCutDefinitionSchool()", returning = "result")
+    @AfterReturning(value = "pointCutDefinitionProduct()", returning = "result")
     public void logAfterReturning(JoinPoint pjp, Object result) {
         System.out.println("After method: " + pjp.getSignature().getName() + ", Result: " + result);
     }
 
-    @Around(value = "pointCutDefinitionSchool()")
+    @Around(value = "pointCutDefinitionProduct()")
     public Object applicationLogger(ProceedingJoinPoint pjp) throws Throwable {
         ObjectMapper mapper = new ObjectMapper();
 
