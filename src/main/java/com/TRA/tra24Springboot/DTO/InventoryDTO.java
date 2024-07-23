@@ -7,6 +7,8 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//This is for converting Inventory Data to DTO
 @Data
 public class InventoryDTO {
 

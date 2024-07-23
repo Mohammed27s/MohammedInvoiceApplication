@@ -7,6 +7,8 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//This is for convert ContactDetail data to DTO
 @Data
 public class ContactDetailDTO {
 
