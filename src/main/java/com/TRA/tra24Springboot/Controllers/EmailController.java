@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/email") //This is the main directory for email api
+@RequestMapping("/email") //This is the main directory for email
 public class EmailController {
 
     @Autowired
     EmailService emailService; //This is for saving the get request
 
-    @GetMapping("send") //This is SubDirectory for email
+    @GetMapping("send") //This is for sending email
     public void sendSimpleMail(String toEmail, String fromEmail, String emailBody, String subject) {
         try {
             emailService.sendSimpleMail(toEmail, fromEmail, emailBody, subject);

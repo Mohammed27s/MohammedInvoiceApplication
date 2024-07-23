@@ -8,9 +8,9 @@ package com.TRA.tra24Springboot.Logging;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.slf4j.LoggerFactory;
+
+import org.slf4j.*;
 import org.springframework.stereotype.Component;
-import java.util.logging.Logger;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -23,7 +23,7 @@ import org.aspectj.lang.annotation.*;
 @Component
 public class LoggingAspect {
 
-    public static Logger logger = (Logger) LoggerFactory.getLogger(LoggingAspect.class);
+    public static Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
 
     @Pointcut(value = "execution(* com.TRA.tra24Springboot.Controllers.ProductController.*(..))")

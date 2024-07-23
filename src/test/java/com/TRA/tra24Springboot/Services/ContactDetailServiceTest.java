@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static jdk.jfr.internal.jfc.model.Constraint.any;
+
 import static org.mockito.Mockito.*;
 import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
 
@@ -46,7 +46,6 @@ class ContactDetailServiceTest {
         ContactDetails contactDetails = ContactDetails.builder()
                 .address(address)
                 .phoneNumber(PhoneNumber)
-                .isActive(true)
                 .build();
         //add isActive also
 
@@ -61,7 +60,7 @@ class ContactDetailServiceTest {
                         .build()
         );
 
-        when(contactDetailRepository.save(any(ContactDetails.class))).thenReturn(ContactDetails);
+        when(contactDetailRepository.save(any(ContactDetails.class))).thenReturn(contactDetails);
         when(productRepository.saveAll(any(ArrayList.class))).thenReturn(products);
 
 
@@ -71,7 +70,7 @@ class ContactDetailServiceTest {
         verify(contactDetailRepository, times(1)).save(any(ContactDetails.class));
 
 
-        assertEquals(ContactDetails.getEmail(), savedContactDetails.getPhoneNumber());
+        assertEquals(contactDetails.getEmail(), savedContactDetails.getPhoneNumber());
 
 
         List<ContactDetailDTO> contactDetailDTOS = contactDetailService.getContactDetails();
