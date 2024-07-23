@@ -26,7 +26,7 @@ public class ContactDetailController {
         }
     }
 
-    @PostMapping("delete") //This is for deleting the whole Contact Details by email
+    @PostMapping("remove") //This is for deleting the whole Contact Details by using email
     public String deleteContactDetailByEmail(@RequestParam String em){
         try {
             contactDetailService.deleteContactDetailsByEmail(em);
@@ -37,7 +37,7 @@ public class ContactDetailController {
         }
     }
 
-    @PostMapping("deleteByPhoneNumber") //This for deleting the whole Contact Details by Phone Number
+    @PostMapping("deleteByPhoneNumber") //This for deleting the whole Contact Details by using Phone Number
     public String deleteContactDetailsByPhoneNumber(@RequestParam String pho){
         try {
             contactDetailService.deleteContactDetailsByPhoneNumber(pho);
@@ -50,7 +50,7 @@ public class ContactDetailController {
 
     //Updated here
 
-    @GetMapping("stored") //This for getting all Contact Details that already been created
+    @GetMapping("get") //This for getting all stored Contact Details from the database
     public List<ContactDetailDTO> getContactDetails(){
         try {
             return contactDetailService.getContactDetails();
@@ -59,4 +59,9 @@ public class ContactDetailController {
             throw new RuntimeException("Failed to get contact details", e);
         }
     }
+
+
+    //Need Updated API here
+
+
 }
