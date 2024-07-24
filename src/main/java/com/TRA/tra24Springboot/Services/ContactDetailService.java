@@ -31,31 +31,40 @@ public class ContactDetailService {
         }
     }
 
-    public String deleteContactDetailsByPhoneNumber(String phoneNumber){
+    public String deleteContactDetailsByPhoneNumber(String phoneNumber){ //This is for deleting by Phone Number
         try {
             ContactDetails contactDetailsFromDb = contactDetailRepository.getByPhoneNumber(phoneNumber);
-            contactDetailsFromDb.setIsActive(Boolean.FALSE);
-            contactDetailRepository.save(contactDetailsFromDb);
-            return "Success";
+            if(contactDetailsFromDb != null) {
+                contactDetailsFromDb.setIsActive(Boolean.FALSE);
+                contactDetailRepository.save(contactDetailsFromDb);
+                return "Success";
+            } else {
+
+                return "Contact Details not found for phone number"+ phoneNumber;
+            }
         } catch (Exception e) {
             // Handle exception
             throw new RuntimeException("Failed to delete contact details by phone number", e);
         }
     }
 
-    public String deleteContactDetailsByEmail(String email){
+    public String deleteContactDetailsByEmail(String email){ //This is for deleting by email
         try {
             ContactDetails contactDetailsFromDb = contactDetailRepository.getByPhoneNumber(email);
-            contactDetailsFromDb.setIsActive(Boolean.FALSE);
-            contactDetailRepository.save(contactDetailsFromDb);
-            return "Success";
+            if(contactDetailsFromDb != null) {
+                contactDetailsFromDb.setIsActive(Boolean.FALSE);
+                contactDetailRepository.save(contactDetailsFromDb);
+                return "Success";
+            } else {
+                return "Contact details not found for email: "+ email;
+            }
         } catch (Exception e) {
             // Handle exception
             throw new RuntimeException("Failed to delete contact details by email", e);
         }
     }
 
-    public List<ContactDetailDTO> getContactDetails(){
+    public List<ContactDetailDTO> getContactDetails(){ //This is for fetching all Contact Details from the DataBase
         try {
             List<ContactDetails> contactDetail = contactDetailRepository.findAll();
             return ContactDetailDTO.convertToDTO(contactDetail);

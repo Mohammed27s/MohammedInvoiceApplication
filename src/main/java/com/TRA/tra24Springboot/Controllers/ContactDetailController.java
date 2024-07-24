@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@Data
+
 @RestController
 @RequestMapping("/contact") //This is the main directory for Contact Details
 public class ContactDetailController {
@@ -16,7 +16,7 @@ public class ContactDetailController {
     @Autowired
     ContactDetailService contactDetailService;
 
-    @PostMapping("save") //This is to save all Contact Details information
+    @PostMapping("/save") //This is to save all Contact Details information
     public ContactDetails saveContactDetail(@RequestBody ContactDetails contactDetails){
         try {
             return contactDetailService.saveContactDetails(contactDetails);
@@ -26,22 +26,22 @@ public class ContactDetailController {
         }
     }
 
-    @PostMapping("removeEmail") //This is for deleting the whole Contact Details by using email
+    @PostMapping("/removeEmail") //This is for deleting the whole Contact Details by using email
     public String deleteContactDetailByEmail(@RequestParam String em){
         try {
             contactDetailService.deleteContactDetailsByEmail(em);
-            return "Success";
+            return "The contact detail has Deleted Successfully by email";
         } catch (Exception e) {
             // Handle exception
             throw new RuntimeException("Failed to delete contact details by email", e);
         }
     }
 
-    @PostMapping("removePhone") //This for deleting the whole Contact Details by using Phone Number
+    @PostMapping("/removePhone") //This for deleting the whole Contact Details by using Phone Number
     public String deleteContactDetailsByPhoneNumber(@RequestParam String pho){
         try {
             contactDetailService.deleteContactDetailsByPhoneNumber(pho);
-            return "Success";
+            return "The contact detail has deleted successfully by phone number";
         } catch (Exception e) {
             // Handle exception
             throw new RuntimeException("Failed to delete contact details by phone number", e);
@@ -50,7 +50,7 @@ public class ContactDetailController {
 
     //Updated here
 
-    @GetMapping("get") //This for getting all stored Contact Details from the database
+    @GetMapping("/get") //This for getting all stored Contact Details from the database
     public List<ContactDetailDTO> getContactDetails(){
         try {
             return contactDetailService.getContactDetails();
@@ -62,6 +62,8 @@ public class ContactDetailController {
 
 
     //Need Updated API here
+
+   // @PutMapping("/update")
 
 
 }

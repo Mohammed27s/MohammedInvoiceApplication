@@ -14,7 +14,8 @@ public class ContactDetailDTO {
     String postalCode;
     String faxNumber;
     String phoneNumber;
-
+    String email;
+    String address;
 
     //This is for convert each variable above to DTO
     public static  ContactDetailDTO convertToDTO(ContactDetails contactDetails){
@@ -23,6 +24,8 @@ public class ContactDetailDTO {
         contactDetailDTO.setFaxNumber(contactDetails.getFaxNumber());
         contactDetailDTO.setPostalCode(contactDetails.getPostalCode());
         contactDetailDTO.setPhoneNumber(contactDetails.getPhoneNumber());
+        contactDetailDTO.setEmail(contactDetails.getEmail());
+        contactDetailDTO.setAddress(contactDetailDTO.getAddress());
 
         return  contactDetailDTO;
     }
