@@ -1,10 +1,7 @@
 package com.TRA.tra24Springboot.Models;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.Date;
 
 @Data

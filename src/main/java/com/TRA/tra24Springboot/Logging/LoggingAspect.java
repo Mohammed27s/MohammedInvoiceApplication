@@ -17,7 +17,6 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
 
-//This is code must be Change with Controllers that are existing in this spring boot project
 @Aspect
 @Component
 public class LoggingAspect {
@@ -25,7 +24,7 @@ public class LoggingAspect {
     public static Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
 
-    @Pointcut(value = "execution(* com.TRA.tra24Springboot.Controllers.ProductController.*(..))")
+    @Pointcut(value = "execution(* com.TRA.tra24Springboot.Controllers.*.*(..))")
     public void pointCutDefinitionProduct() { //This is point cut function
     }
 
