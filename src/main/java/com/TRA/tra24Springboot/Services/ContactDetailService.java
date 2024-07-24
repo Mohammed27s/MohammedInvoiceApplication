@@ -21,7 +21,7 @@ public class ContactDetailService {
             contactDetails.setEmail("admin.com@Outlook.com");
             contactDetails.setPhoneNumber("+968 966373523");
             contactDetails.setFaxNumber("A675553");
-            contactDetails.setAddress("Muscat");
+            contactDetails.setAddress("Al Khould");
             contactDetails.setPostalCode("FG7673733");
 
             return contactDetailRepository.save(contactDetails);

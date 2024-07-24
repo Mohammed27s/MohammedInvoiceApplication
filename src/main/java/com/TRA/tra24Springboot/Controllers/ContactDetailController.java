@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-
+@Data
 @RestController
 @RequestMapping("/contact") //This is the main directory for Contact Details
 public class ContactDetailController {
@@ -50,7 +50,7 @@ public class ContactDetailController {
 
     //Updated here
 
-    @GetMapping("/get") //This for getting all stored Contact Details from the database
+    @GetMapping("/fetch") //This for getting all stored Contact Details from the database
     public List<ContactDetailDTO> getContactDetails(){
         try {
             return contactDetailService.getContactDetails();
