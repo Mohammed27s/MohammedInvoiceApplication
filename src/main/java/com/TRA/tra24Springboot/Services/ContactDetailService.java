@@ -12,14 +12,14 @@ import java.util.List;
 public class ContactDetailService {
 
     @Autowired
-    ContactDetailRepository contactDetailRepository;
+    ContactDetailRepository contactDetailRepository; //This is for saving all information in data
 
     public ContactDetails saveContactDetails(ContactDetails contactDetails){
         try {
             contactDetails.setCreatedDate(new Date());
             contactDetails.setIsActive(Boolean.TRUE);
             contactDetails.setEmail("admin.com@Outlook.com");
-            contactDetails.setPhoneNumber("+968 9656456563");
+            contactDetails.setPhoneNumber("+968 966373523");
             contactDetails.setFaxNumber("A675553");
             contactDetails.setAddress("Muscat");
             contactDetails.setPostalCode("FG7673733");

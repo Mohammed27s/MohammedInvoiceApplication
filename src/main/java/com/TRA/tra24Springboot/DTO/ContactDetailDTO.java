@@ -3,7 +3,6 @@ package com.TRA.tra24Springboot.DTO;
 
 import com.TRA.tra24Springboot.Models.ContactDetails;
 import lombok.Data;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +13,7 @@ public class ContactDetailDTO {
 
     String postalCode;
     String faxNumber;
+    String phoneNumber;
 
 
     //This is for convert each variable above to DTO
@@ -21,8 +21,8 @@ public class ContactDetailDTO {
 
         ContactDetailDTO contactDetailDTO = new ContactDetailDTO();
         contactDetailDTO.setFaxNumber(contactDetails.getFaxNumber());
-        contactDetailDTO.setPostalCode(contactDetailDTO.getPostalCode());
-
+        contactDetailDTO.setPostalCode(contactDetails.getPostalCode());
+        contactDetailDTO.setPhoneNumber(contactDetails.getPhoneNumber());
 
         return  contactDetailDTO;
     }

@@ -26,7 +26,7 @@ public class ContactDetailController {
         }
     }
 
-    @PostMapping("remove") //This is for deleting the whole Contact Details by using email
+    @PostMapping("removeEmail") //This is for deleting the whole Contact Details by using email
     public String deleteContactDetailByEmail(@RequestParam String em){
         try {
             contactDetailService.deleteContactDetailsByEmail(em);
@@ -37,7 +37,7 @@ public class ContactDetailController {
         }
     }
 
-    @PostMapping("deleteByPhoneNumber") //This for deleting the whole Contact Details by using Phone Number
+    @PostMapping("removePhone") //This for deleting the whole Contact Details by using Phone Number
     public String deleteContactDetailsByPhoneNumber(@RequestParam String pho){
         try {
             contactDetailService.deleteContactDetailsByPhoneNumber(pho);
@@ -56,7 +56,7 @@ public class ContactDetailController {
             return contactDetailService.getContactDetails();
         } catch (Exception e) {
             // Handle exception
-            throw new RuntimeException("Failed to get contact details", e);
+            throw new RuntimeException("Failed to fetch contact details", e);
         }
     }
 
