@@ -4,14 +4,14 @@ import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 
-@EqualsAndHashCode(callSuper = true)
+
+@EqualsAndHashCode(callSuper = true) //This is for
 @Data
 @Entity
 @Builder
-@Table(name = "ContactDetails")
+@Table(name = "contact_details")
 public class ContactDetails extends BaseEntity {
   //These attributes for Contact Details
 

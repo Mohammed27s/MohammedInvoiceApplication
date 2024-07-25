@@ -21,7 +21,7 @@ public class ContactDetailService {
             contactDetails.setEmail("admin.com@Outlook.com");
             contactDetails.setPhoneNumber("+968 966373523");
             contactDetails.setFaxNumber("A675553");
-            contactDetails.setAddress("Al Khould");
+            contactDetails.setAddress("Muscat");
             contactDetails.setPostalCode("FG7673733");
 
             return contactDetailRepository.save(contactDetails);
@@ -30,6 +30,7 @@ public class ContactDetailService {
             throw new RuntimeException("Failed to save contact details", e);
         }
     }
+
 
     public String deleteContactDetailsByPhoneNumber(String phoneNumber){ //This is for deleting by Phone Number
         try {
@@ -50,7 +51,7 @@ public class ContactDetailService {
 
     public String deleteContactDetailsByEmail(String email){ //This is for deleting by email
         try {
-            ContactDetails contactDetailsFromDb = contactDetailRepository.getByPhoneNumber(email);
+            ContactDetails contactDetailsFromDb = contactDetailRepository.getByEmail(email);
             if(contactDetailsFromDb != null) {
                 contactDetailsFromDb.setIsActive(Boolean.FALSE);
                 contactDetailRepository.save(contactDetailsFromDb);
@@ -64,6 +65,9 @@ public class ContactDetailService {
         }
     }
 
+    //Updated must add here
+
+
     public List<ContactDetailDTO> getContactDetails(){ //This is for fetching all Contact Details from the DataBase
         try {
             List<ContactDetails> contactDetail = contactDetailRepository.findAll();
@@ -71,6 +75,31 @@ public class ContactDetailService {
         } catch (Exception e) {
             // Handle exception
             throw new RuntimeException("Failed to get contact details", e);
+        }
+    }
+
+
+    //This is for updating existing data in the DataBase
+    public ContactDetails updateContactDetails(ContactDetails contactDetails) {
+        try {
+            // Fetch existing contact details from the database
+            ContactDetails existingDetails = contactDetailRepository.findById(contactDetails.getId())
+                    .orElseThrow(() -> new RuntimeException("Contact details not found for id: " + contactDetails.getId()));
+
+            // Update the fields with new values
+            existingDetails.setEmail(contactDetails.getEmail());
+            existingDetails.setPhoneNumber(contactDetails.getPhoneNumber());
+            existingDetails.setFaxNumber(contactDetails.getFaxNumber());
+            existingDetails.setAddress(contactDetails.getAddress());
+            existingDetails.setPostalCode(contactDetails.getPostalCode());
+            existingDetails.setUpdatedDate(new Date()); // Optionally update the created date if needed
+            existingDetails.setIsActive(Boolean.TRUE); // Ensure the record is active
+
+            // Save the updated contact details
+            return contactDetailRepository.save(existingDetails);
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to update contact details", e);
         }
     }
 }

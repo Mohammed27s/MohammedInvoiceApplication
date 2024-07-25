@@ -16,7 +16,7 @@ public class ContactDetailController {
     @Autowired
     ContactDetailService contactDetailService;
 
-    @PostMapping("/save") //This is to save all Contact Details information
+    @PostMapping("/save") //This is for creating new Contact Detail
     public ContactDetails saveContactDetail(@RequestBody ContactDetails contactDetails){
         try {
             return contactDetailService.saveContactDetails(contactDetails);
@@ -48,7 +48,6 @@ public class ContactDetailController {
         }
     }
 
-    //Updated here
 
     @GetMapping("/fetch") //This for getting all stored Contact Details from the database
     public List<ContactDetailDTO> getContactDetails(){
@@ -61,9 +60,15 @@ public class ContactDetailController {
     }
 
 
-    //Need Updated API here
-
-   // @PutMapping("/update")
+    @PutMapping("/update") //This is for updating all stored data in the DataBase
+    public ContactDetails updateContactDetail(@RequestBody ContactDetails contactDetails) {
+        try {
+            return contactDetailService.updateContactDetails(contactDetails);
+        } catch (Exception e) {
+            // Handle exception
+            throw new RuntimeException("Failed to update contact details", e);
+        }
+    }
 
 
 }
