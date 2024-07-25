@@ -22,8 +22,9 @@ public class LoggingAspect {
 
     public static Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
-
-    @Pointcut(value = "execution(* com.TRA.tra24Springboot.Controllers.*.*(..))")
+    //This is PointCut applied for Controllers and Services packages
+    @Pointcut("execution(* com.TRA.tra24Springboot.Controllers.*.*(..)) || execution(* com.TRA.tra24Springboot.Services.*.*(..))")
+    //This PointCut for Controller package
     public void pointCutDefinitionProduct() { //This is point cut function
     }
 
