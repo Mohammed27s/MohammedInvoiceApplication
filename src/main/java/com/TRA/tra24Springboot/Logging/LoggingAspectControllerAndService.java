@@ -18,9 +18,9 @@ import org.aspectj.lang.annotation.*;
 
 @Aspect
 @Component
-public class LoggingAspect {
+public class LoggingAspectControllerAndService {
 
-    public static Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
+    public static Logger logger = LoggerFactory.getLogger(LoggingAspectControllerAndService.class);
 
     //This is PointCut applied for Controllers and Services packages
     @Pointcut("execution(* com.TRA.tra24Springboot.Controllers.*.*(..)) || execution(* com.TRA.tra24Springboot.Services.*.*(..))")
