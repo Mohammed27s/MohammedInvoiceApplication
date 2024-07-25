@@ -16,6 +16,9 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 
 
+//Introduce Logging Advice and relevant pointcut
+// definitions for Controller and Services.
+
 @Aspect
 @Component
 public class LoggingAspectControllerAndService {
