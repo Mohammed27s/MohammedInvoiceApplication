@@ -10,16 +10,15 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.*;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Component;
-import java.util.logging.*;
 
 
 //Introduce Global Exception Handling Advice and relevant pointcut
 // definitions to handle and log exceptions in Controllers and Services
 @Aspect
 @Component
-public class GlobalExceptionsAdvice {
+public class GlobalExceptionsAdviceControllerAndService {
 
-    private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionsAdvice.class);
+    private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionsAdviceControllerAndService.class);
 
     // Define a pointcut that matches all methods within controllers and services
     @Pointcut("execution(* com.TRA.tra24Springboot.Controllers.*.*(..)) || execution(* com.TRA.tra24Springboot.Services.*.*(..))")
