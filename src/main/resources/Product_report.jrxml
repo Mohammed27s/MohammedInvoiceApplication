@@ -2,30 +2,20 @@
 <!-- Created with Jaspersoft Studio version 6.20.1.final using JasperReports Library version 6.20.1-7584acb244139816654f64e2fd57a00d3e31921e  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Product_Management_System" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dd4be1cb-76c8-4dea-9285-ca4488bf9e10">
 
-    <field name="ORDERID" class="java.lang.Integer">
-        <property name="com.jaspersoft.studio.field.name" value="ORDERID"/>
-        <property name="com.jaspersoft.studio.field.label" value="ORDERID"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="ORDERS"/>
+    <field name="id" class="java.lang.Integer">
+
     </field>
-    <field name="CUSTOMERID" class="java.lang.String">
-        <property name="com.jaspersoft.studio.field.name" value="CUSTOMERID"/>
-        <property name="com.jaspersoft.studio.field.label" value="CUSTOMERID"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="ORDERS"/>
+    <field name="quantity" class="java.lang.Integer">
+
     </field>
-    <field name="EMPLOYEEID" class="java.lang.Integer">
-        <property name="com.jaspersoft.studio.field.name" value="EMPLOYEEID"/>
-        <property name="com.jaspersoft.studio.field.label" value="EMPLOYEEID"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="ORDERS"/>
+    <field name="category" class="java.lang.String">
+
     </field>
-    <field name="ORDERDATE" class="java.sql.Timestamp">
-        <property name="com.jaspersoft.studio.field.name" value="ORDERDATE"/>
-        <property name="com.jaspersoft.studio.field.label" value="ORDERDATE"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="ORDERS"/>
+    <field name="sku" class="java.sql.UUID">
+
     </field>
-    <field name="REQUIREDDATE" class="java.sql.Timestamp">
-        <property name="com.jaspersoft.studio.field.name" value="REQUIREDDATE"/>
-        <property name="com.jaspersoft.studio.field.label" value="REQUIREDDATE"/>
-        <property name="com.jaspersoft.studio.field.tree.path" value="ORDERS"/>
+    <field name="productDetails" class="java.sql.ProductDetails">
+
     </field>
     <background>
         <band/>
@@ -75,7 +65,7 @@
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Product Name ]]></text>
+                <text><![CDATA[Quantity]]></text>
             </staticText>
             <staticText>
                 <reportElement mode="Opaque" x="222" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="52daf9ec-e009-457f-aaac-ccd6003c1927">
@@ -84,7 +74,7 @@
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
-                <text><![CDATA[EMPLOYEEID]]></text>
+                <text><![CDATA[Category]]></text>
             </staticText>
             <staticText>
                 <reportElement mode="Opaque" x="333" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="141c300d-d968-4424-ab23-56df63f09446">
@@ -93,7 +83,7 @@
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
-                <text><![CDATA[ORDERDATE]]></text>
+                <text><![CDATA[Product SKU]]></text>
             </staticText>
             <staticText>
                 <reportElement mode="Opaque" x="444" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ed9987cd-e7ca-4af2-b1f0-dce8ff9630fc">
@@ -102,7 +92,7 @@
                 <textElement textAlignment="Center">
                     <font size="14" isBold="true"/>
                 </textElement>
-                <text><![CDATA[REQUIREDDATE]]></text>
+                <text><![CDATA[Product Details]]></text>
             </staticText>
         </band>
     </columnHeader>
@@ -118,7 +108,7 @@
                 <textElement>
                     <font size="14"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{ORDERID}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
             </textField>
             <textField textAdjust="StretchHeight">
                 <reportElement x="111" y="0" width="111" height="20" uuid="bf6daee0-68e2-41fd-a05c-e57741a0f500">
@@ -127,7 +117,7 @@
                 <textElement>
                     <font size="14"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{CUSTOMERID}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
             </textField>
             <textField textAdjust="StretchHeight">
                 <reportElement x="222" y="0" width="111" height="20" uuid="6767f767-4470-482c-9678-e6df79c8bff9">
@@ -136,7 +126,7 @@
                 <textElement>
                     <font size="14"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{EMPLOYEEID}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{category}]]></textFieldExpression>
             </textField>
             <textField textAdjust="StretchHeight">
                 <reportElement x="333" y="0" width="111" height="20" uuid="e7718cd0-503f-48eb-81d6-731a27fafc4a">
@@ -145,7 +135,7 @@
                 <textElement>
                     <font size="14"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{ORDERDATE}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{sku}]]></textFieldExpression>
             </textField>
             <textField textAdjust="StretchHeight">
                 <reportElement x="444" y="0" width="111" height="20" uuid="8482c739-bce5-4b12-8f4a-e7f87537cbeb">
@@ -154,7 +144,7 @@
                 <textElement>
                     <font size="14"/>
                 </textElement>
-                <textFieldExpression><![CDATA[$F{REQUIREDDATE}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{productDetails}]]></textFieldExpression>
             </textField>
         </band>
     </detail>

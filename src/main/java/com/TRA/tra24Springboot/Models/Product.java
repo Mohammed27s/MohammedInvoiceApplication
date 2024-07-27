@@ -11,6 +11,9 @@ import java.util.UUID;
 public class Product extends BaseEntity {
 
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer id;
     Integer quantity;
     String category;
     UUID sku; //This is the id for product
