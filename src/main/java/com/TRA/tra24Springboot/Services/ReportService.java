@@ -22,7 +22,6 @@ public class ReportService {
     private ProductServices productServices;
 
 
-
     public void createProductReport() throws FileNotFoundException, JRException {
         List<ProductDTO> productDTOList = productServices.getProducts();
         UUID uuid = UUID.randomUUID();
@@ -39,7 +38,6 @@ public class ReportService {
 
 
     }
-
 
 
 
