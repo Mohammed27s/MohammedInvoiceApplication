@@ -6,7 +6,7 @@
     </field>
     <field name="schoolName" class="java.lang.String">
     </field>
-    <field name="schoolLocation" class="java.lang.String">
+    <field name="schoolLocation" class="java.lang.Strigit ung">
     </field>
     <group name="Group1">
         <groupExpression><![CDATA[$F{productId}]]></groupExpression>
