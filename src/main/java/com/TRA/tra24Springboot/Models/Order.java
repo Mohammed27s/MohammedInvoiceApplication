@@ -1,16 +1,16 @@
 package com.TRA.tra24Springboot.Models;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 import org.hibernate.annotations.Cascade;
-
 import java.util.Date;
 import java.util.List;
 
-
-@Entity
-@Table(name = "orders")
 @Data
+@Entity
+@Builder
+@Table(name = "orders")
 public class Order extends BaseEntity {
 
     @OneToMany
@@ -27,4 +27,5 @@ public class Order extends BaseEntity {
     @Enumerated(EnumType.STRING)
     PaymentType paymentType;
     Date dueDate;
+
 }
