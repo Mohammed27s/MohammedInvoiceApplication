@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+
+//This repo has unit testing
 public interface ContactDetailRepository extends JpaRepository<ContactDetails, Integer> {
 
 

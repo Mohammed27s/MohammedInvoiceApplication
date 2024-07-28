@@ -89,6 +89,14 @@
 			<version>6.20.1</version>
 		</dependency>
 
+		<!-- A fast SQL database that can run embedded or a server mode with support for transactions,
+		 encryption,full search, etc. Storage can be disk-based or in-memory. -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>2.3.230</version>
+			<scope>test</scope>
+		</dependency>
 
 
 	</dependencies>
