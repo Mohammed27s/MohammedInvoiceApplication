@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+//This is repo has Unit Testing
 @Repository
 public interface InventoryRepository extends JpaRepository<Inventory, Integer> {
 
